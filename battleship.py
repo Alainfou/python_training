@@ -20,7 +20,9 @@ def random_col(sea):
     return randint(0, len(sea[0]) - 1)
 
 # Welcome message :
-print "Hello, and welcome to my Battleship game!"
+print "/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ "
+print "| Hello, and welcome to my Battleship game! |"
+print "\~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/ "
 
 # Get input (size of the square sea):
 while sea_size not in range(5,11):
@@ -30,13 +32,13 @@ while sea_size not in range(5,11):
 for x in range(sea_size):
     sea.append(["~"] * sea_size)
 
-# Create a single ship, hidden in the sea:
+# Create a ship (single cell), hidden in the sea:
 ship_row = random_row(sea)
 ship_col = random_col(sea)
 
 # Get input (number of turns):
-while turns not in range(1,10):
-	turns = int(raw_input("Number of turns (from 1 to 10): "))
+while turns not in range(1,21):
+	turns = int(raw_input("Number of turns (from 1 to 20): "))
 
 # Repeat for each turn:
 for turn in range(0,turns):
@@ -56,7 +58,7 @@ for turn in range(0,turns):
 
     # If the selected index matches, you won!
     elif guess_row == ship_row and guess_col == ship_col:
-        print "Damn'! You sunk my battleship..."
+        print "URRR!! Damn'! You sunk my battleship, matey!"
         break
     # If the index is in the board game but not the ship,
     # check if it has been tried already or mark it as tried:
@@ -70,4 +72,7 @@ for turn in range(0,turns):
 # Will print in every cases:
 sea[ship_row][ship_col] = "X"
 print_game(sea)
-print " ~ Thanks for playing Battleship! ~ "
+print "GAME OVER"
+print "/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ "
+print "| ~ ~ ~ Thanks for playing Battleship ~ ~ ~ |"
+print "\~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/ "
